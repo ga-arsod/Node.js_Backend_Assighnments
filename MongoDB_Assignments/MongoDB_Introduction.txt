@@ -1,0 +1,21 @@
+use assignments
+
+db.createCollection(“users”)
+
+db.users.insert({“first_name”: “Gaurav”, “last_name”: “Arsod”, “email”: “ga444”, “gender”: “male”, “ip_adress”: “3453”, “age”: 22})
+
+db.users.insertMany([{“first_name”: “san”, “last_name”: “ar”, “email”: “sa33”, “gender”: “male”, “ip_adress”: “3453”, “age”: 22}, {“first_name”: “Gaurav”, “last_name”: “shien”, “email”: “343”, “gender”: “male”, “ip_adress”: “3453”, “age”: 22}, {“first_name”: “chetan”, “last_name”: “shir”, “email”: “sna33”, “gender”: “male”, “ip_adress”: “3453”, “age”: 25}, {“first_name”: “raj”, “last_name”: “shir”, “email”: “raj1234”, “gender”: “male”, “ip_adress”: “1234”, “age”: 23}, {“first_name”: “Gaurav”, “last_name”: “chaudhary”, “email”: “gar22”, “gender”: “male”, “ip_adress”: “3477”, “age”: 23}, {“first_name”: “saurav”, “last_name”: “gohane”, “email”: “sg33”, “gender”: “male”, “ip_adress”: “9090”, “age”: 24}, {“first_name”: “sagar”, “last_name”: “gohane”, “email”: “sagargohne”, “gender”: “male”, “ip_adress”: “3444”, “age”: 25}, {“first_name”: “akash”, “last_name”: “sharma”, “email”: “sharmaji”, “gender”: “male”, “ip_adress”: “3434”, “age”: 28}, {“first_name”: “rukminee”, “last_name”: “falke”, “email”: “ruk2343”, “gender”: “female”, “ip_adress”: “8988”, “age”: 21} ])
+
+db.user.find({}).pretty()
+
+db.user.findOne({“_id”:  ObjectId("622623b750f85a24ac955133")});
+
+db.user.update({“_id”:  ObjectId("622623b750f85a24ac955133")}, {$set : {“country”: “India”}})
+
+db.user.updateMany({}, {$set: {“country”: “India”}})
+
+db.user.remove({“first_name”: “san”});
+
+db.user.deleteMany({“last_name”: “shir”})
+
+db.dropDatabase()
