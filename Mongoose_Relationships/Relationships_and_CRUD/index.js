@@ -132,7 +132,7 @@ app.get("/book_authors", async (req, res) => {
 //find books in a section
 app.get("/books/:id", async (req, res) => {
     try{
-        const books = await BookAuthor.find({sectionID: {$eq : id}}).populate(sectionID).lean().exec();
+        const books = await BookAuthor.find({sectionID: {$eq : req.params.id}}).populate(sectionID).lean().exec();
 
         return res.status(200).send(books);
     }
@@ -158,7 +158,7 @@ app.get("/available", async(req, res) => {
 //find books of 1 author inside a section Optional
 app.get("/book_authors/:id", async (req, res) => {
     try{
-        const book_author = await BookAuthor.find({authorID: {$eq : id}}).populate(bookID).lean().exec();
+        const book_author = await BookAuthor.find({authorID: {$eq : req.params.id}}).populate(bookID).lean().exec();
 
         return res.status(200).send(book_author);
     }
